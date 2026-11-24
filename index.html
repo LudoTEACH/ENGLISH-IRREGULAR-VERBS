@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verbes irréguliers : fiches, cartes et quiz</title>
+<style>
+:root{--bg:#f4f3fb;--sf:#fff;--ink:#1f1b3a;--mu:#625f7c;--ln:#dcd9ee;--ac:#5b3df5;--acbg:#ebe7ff;--am:#b45309;--ok:#15803d;--okbg:#e2f6e9;--ko:#b91c1c;--kobg:#fde8e8}
+@media (prefers-color-scheme:dark){:root{--bg:#15132a;--sf:#201d3b;--ink:#efedff;--mu:#aaa7c8;--ln:#35315a;--ac:#a59bff;--acbg:#2c2760;--am:#fbbf24;--ok:#4ade80;--okbg:#12361f;--ko:#f87171;--kobg:#3d1a1a}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.5 "Segoe UI",Verdana,sans-serif;padding:0 16px 56px}
+main{max-width:820px;margin:0 auto}
+h1{font:700 clamp(28px,5.5vw,42px)/1.1 Georgia,"Times New Roman",serif;margin:28px 0 4px}
+.sub{color:var(--mu);margin:0 0 18px}
+nav{display:flex;gap:6px;border-bottom:2px solid var(--ln);margin-bottom:20px}
+nav button{flex:1;background:none;border:0;border-bottom:4px solid transparent;margin-bottom:-2px;padding:10px 4px;font:600 16px inherit;font-family:inherit;color:var(--mu);cursor:pointer}
+nav button[aria-selected=true]{color:var(--ink);border-color:var(--ac)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+[hidden]{display:none!important}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+input,select{font:inherit;padding:9px 12px;border:2px solid var(--ln);border-radius:10px;background:var(--sf);color:var(--ink)}
+.cat{background:var(--sf);border:1px solid var(--ln);border-radius:14px;margin:0 0 16px;overflow:hidden}
+.cat h2{margin:0;padding:12px 16px;font:700 19px Georgia,serif;background:var(--acbg)}
+.cat p{margin:0;padding:6px 16px 0;color:var(--mu);font-size:15px}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{text-align:left;padding:8px 16px;border-top:1px solid var(--ln);white-space:nowrap}
+th{font-weight:600;color:var(--mu);font-size:14px;border-top:0}
+td.f{font:600 18px Georgia,serif}td.fr{color:var(--mu);white-space:normal}
+.say{background:none;border:0;cursor:pointer;font-size:18px;color:var(--ac)}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:24px;text-align:center}
+.big{font:700 clamp(40px,9vw,62px)/1.1 Georgia,serif;margin:8px 0}
+.fr{color:var(--mu)}
+.forms{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:14px 0;font:600 26px Georgia,serif}
+.forms small{display:block;font:14px "Segoe UI",sans-serif;color:var(--mu)}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:11px 20px;font:700 16px inherit;font-family:inherit;cursor:pointer}
+@media (prefers-color-scheme:dark){.btn{color:#15132a}}
+.btn.ghost{background:none;color:var(--ink);border:2px solid var(--ln)}
+.bar{display:flex;justify-content:space-between;color:var(--mu);font-size:15px;margin-bottom:8px}
+.lv{display:flex;width:100%;text-align:left;gap:14px;align-items:center;background:var(--sf);border:2px solid var(--ln);border-radius:14px;padding:14px 16px;margin:0 0 10px;font:inherit;color:var(--ink);cursor:pointer}
+.lv:hover{border-color:var(--ac)}
+.lv b{font:700 20px Georgia,serif;min-width:2ch}.lv span{flex:1}.lv small{display:block;color:var(--mu)}
+.lv em{font-style:normal;color:var(--am);font-weight:600;white-space:nowrap}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{background:var(--sf);border:2px solid var(--ln);border-radius:12px;padding:14px 8px;font:600 22px Georgia,serif;color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--ac)}
+.opt.right{background:var(--ok);border-color:var(--ok);color:#fff}.opt.wrong{background:var(--ko);border-color:var(--ko);color:#fff}
+.opt.sm{font:600 16px "Segoe UI",sans-serif}
+.fields{display:grid;gap:10px;max-width:380px;margin:16px auto;text-align:left}
+.fields label{font-size:14px;color:var(--mu)}
+.fields input{width:100%;font:600 20px Georgia,serif}
+.fields input.right{border-color:var(--ok);background:var(--okbg)}.fields input.wrong{border-color:var(--ko);background:var(--kobg)}
+.fb{min-height:3em;margin-top:8px}.fb.ok{color:var(--ok)}.fb.ko{color:var(--ko)}
+.score{font:700 54px Georgia,serif}
+</style>
+</head>
+<body>
+<main>
+<h1>Les verbes irréguliers</h1>
+<p class="sub">88 verbes classés par ressemblance : révise les fiches, mémorise avec les cartes, puis passe les niveaux du quiz.</p>
+<nav role="tablist">
+<button role="tab" aria-selected="true" data-tab="fiches">Fiches</button>
+<button role="tab" aria-selected="false" data-tab="cartes">Cartes</button>
+<button role="tab" aria-selected="false" data-tab="quiz">Quiz</button>
+</nav>
+
+<section id="fiches">
+<div class="tools"><input id="q" type="search" placeholder="Chercher un verbe (anglais ou français)" aria-label="Chercher" style="flex:1;min-width:200px"><select id="fcat" aria-label="Catégorie"></select></div>
+<div id="flist"></div>
+</section>
+
+<section id="cartes" hidden>
+<div class="tools"><select id="ccat" aria-label="Catégorie"></select></div>
+<div class="bar"><span id="cn"></span><span></span></div>
+<div class="card" id="cc"></div>
+</section>
+
+<section id="quiz" hidden>
+<div id="qsetup">
+<div class="tools"><label for="qcat" style="align-self:center">Verbes testés :</label><select id="qcat"></select></div>
+<div id="lvls"></div>
+</div>
+<div id="qplay" hidden>
+<div class="bar"><span id="qn"></span><span id="qs"></span></div>
+<div class="card" id="qc"></div>
+</div>
+</section>
+</main>
+
+<script>
+const D=[
+{n:"À savoir absolument",d:"Les verbes les plus fréquents de l’anglais.",v:["be|was/were|been|être","have|had|had|avoir","do|did|done|faire","make|made|made|faire, fabriquer","go|went|gone|aller","get|got|got|avoir, obtenir"]},
+{n:"Ceux qui ne changent pas",d:"Les trois formes sont identiques (read s’écrit pareil, mais se prononce /red/ au prétérit et au participe).",v:["cut|cut|cut|couper","bet|bet|bet|parier","let|let|let|laisser","hurt|hurt|hurt|blesser","put|put|put|mettre","shut|shut|shut|fermer","burst|burst|burst|éclater","hit|hit|hit|frapper","cost|cost|cost|coûter","spread|spread|spread|étaler","read|read|read|lire","quit|quit|quit|quitter, abandonner"]},
+{n:"Ceux qui aiment le « T »",d:"Le prétérit et le participe passé se terminent par un T ou un son proche.",v:["burn|burnt|burnt|brûler","build|built|built|construire","send|sent|sent|envoyer","spend|spent|spent|dépenser, passer (du temps)","learn|learnt|learnt|apprendre","lend|lent|lent|prêter","shoot|shot|shot|tirer","lose|lost|lost|perdre","sit|sat|sat|s’asseoir"]},
+{n:"Prétérit et participe identiques",d:"Une seule forme à retenir pour le passé.",v:["find|found|found|trouver","hear|heard|heard|entendre","lay|laid|laid|étendre, coucher","pay|paid|paid|payer","say|said|said|dire","sell|sold|sold|vendre","tell|told|told|dire, raconter","stand|stood|stood|être debout","understand|understood|understood|comprendre","win|won|won|gagner"]},
+{n:"La série des « j’ai acheté » : -GHT",d:"Prétérit et participe en -ought / -aught.",v:["buy|bought|bought|acheter","bring|brought|brought|apporter","fight|fought|fought|se battre","think|thought|thought|penser","catch|caught|caught|attraper","teach|taught|taught|enseigner"]},
+{n:"Le /i:/ long devient /e/",d:"Le son long du verbe devient court au passé.",v:["bleed|bled|bled|saigner","feed|fed|fed|nourrir","feel|felt|felt|ressentir","keep|kept|kept|garder","meet|met|met|rencontrer","sleep|slept|slept|dormir","dream|dreamt|dreamt|rêver","mean|meant|meant|vouloir dire","lead|led|led|mener","leave|left|left|quitter"]},
+{n:"Présent et participe identiques",d:"Seul le prétérit change.",v:["become|became|become|devenir","come|came|come|venir","overcome|overcame|overcome|vaincre, surmonter","run|ran|run|courir"]},
+{n:"Participes passés en -EN",d:"Le participe passé se termine par -en.",v:["beat|beat|beaten|battre, frapper","bite|bit|bitten|mordre","choose|chose|chosen|choisir","eat|ate|eaten|manger","drive|drove|driven|conduire","fall|fell|fallen|tomber","forbid|forbade|forbidden|interdire","forget|forgot|forgotten|oublier","forgive|forgave|forgiven|pardonner","freeze|froze|frozen|geler","give|gave|given|donner","hide|hid|hidden|(se) cacher","speak|spoke|spoken|parler","steal|stole|stolen|voler, dérober","ride|rode|ridden|faire du cheval, du vélo…","write|wrote|written|écrire"]},
+{n:"Les « I-A-U »",d:"Les voyelles changent dans l’ordre i, a, u.",v:["begin|began|begun|commencer","drink|drank|drunk|boire","ring|rang|rung|sonner","sing|sang|sung|chanter","swim|swam|swum|nager"]},
+{n:"Les « EAR / ORE / ORN »",d:"Prétérit en -ore, participe en -orn.",v:["bear|bore|born|supporter, mettre au monde","swear|swore|sworn|jurer","tear|tore|torn|déchirer","wear|wore|worn|porter (des habits)"]},
+{n:"« EW » au prétérit, « AWN / OWN » au participe",d:"Prétérit en -ew, participe en -awn ou -own.",v:["draw|drew|drawn|dessiner","blow|blew|blown|souffler","fly|flew|flown|voler (dans les airs)","grow|grew|grown|grandir, pousser, cultiver","know|knew|known|savoir, connaître","throw|threw|thrown|jeter"]}
+];
+const V=[];D.forEach((c,i)=>c.v.forEach(s=>{const [b,p,pp,fr]=s.split("|");V.push({b,p,pp,fr,c:i})}));
+// formes acceptées en plus de celles du document (réponses libres)
+const ALT={burnt:["burned"],learnt:["learned"],dreamt:["dreamed"],"bear|born":["borne"],"was/were":["was","were"]};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const say=w=>{try{const u=new SpeechSynthesisUtterance(w.split("/")[0]);u.lang="en-GB";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const pool=i=>i===""||i==null?V:V.filter(v=>v.c==i);
+["fcat","ccat","qcat"].forEach(id=>{$("#"+id).innerHTML='<option value="">Toutes les catégories</option>'+D.map((c,i)=>`<option value="${i}">${esc(c.n)}</option>`).join("")});
+
+$$("nav button").forEach(b=>b.onclick=()=>{$$("nav button").forEach(x=>x.setAttribute("aria-selected",x===b));["fiches","cartes","quiz"].forEach(id=>$("#"+id).hidden=id!==b.dataset.tab)});
+
+// ---- Fiches
+function fiches(){
+  const q=$("#q").value.trim().toLowerCase(),f=$("#fcat").value;let h="";
+  D.forEach((c,i)=>{
+    if(f!==""&&+f!==i)return;
+    const rows=V.filter(v=>v.c===i&&(!q||(v.b+v.p+v.pp+v.fr).toLowerCase().includes(q)));
+    if(!rows.length)return;
+    h+=`<div class="cat"><h2>${esc(c.n)}</h2><p>${esc(c.d)}</p><div class="tw"><table><tr><th></th><th>Infinitif</th><th>Prétérit</th><th>Participe passé</th><th>Français</th></tr>`+
+    rows.map(v=>`<tr><td><button class="say" data-w="${v.b}|${v.p}|${v.pp}" aria-label="Écouter ${v.b}">🔊</button></td><td class="f">${v.b}</td><td class="f">${v.p}</td><td class="f">${v.pp}</td><td class="fr">${esc(v.fr)}</td></tr>`).join("")+`</table></div></div>`;
+  });
+  $("#flist").innerHTML=h||'<p class="fr">Aucun verbe ne correspond à ta recherche.</p>';
+}
+$("#flist").onclick=e=>{const b=e.target.closest(".say");if(!b)return;const [x,y,z]=b.dataset.w.split("|");say(x);setTimeout(()=>say(y),900);setTimeout(()=>say(z),1800)};
+$("#q").oninput=fiches;$("#fcat").onchange=fiches;fiches();
+
+// ---- Cartes
+let deck=[],shown=false;
+function newDeck(){deck=shuffle(pool($("#ccat").value));shown=false;card()}
+function card(){
+  $("#cn").textContent=deck.length?`Il reste ${deck.length} carte${deck.length>1?"s":""}`:"";
+  if(!deck.length){$("#cc").innerHTML='<div class="big">Bravo !</div><p>Tu as fait le tour de cette série.</p><div class="row"><button class="btn" id="cagain">Recommencer</button></div>';$("#cagain").onclick=newDeck;return}
+  const v=deck[0];
+  $("#cc").innerHTML=`<div class="big">${v.b}</div><div class="fr">${esc(v.fr)}</div>`+(shown?
+   `<div class="forms"><div>${v.p}<small>prétérit</small></div><div>${v.pp}<small>participe passé</small></div></div><div class="row"><button class="btn ghost" id="cl">🔊 Écouter</button><button class="btn ghost" id="cr">À revoir</button><button class="btn" id="ck">Je le sais</button></div>`:
+   `<div class="row"><button class="btn" id="cs">Voir les formes</button></div>`);
+  if(shown){$("#ck").onclick=()=>{deck.shift();shown=false;card()};$("#cr").onclick=()=>{deck.push(deck.shift());shown=false;card()};$("#cl").onclick=()=>{say(v.b);setTimeout(()=>say(v.p),900);setTimeout(()=>say(v.pp),1800)};$("#ck").focus()}
+  else{$("#cs").onclick=()=>{shown=true;card()};$("#cs").focus()}
+}
+$("#ccat").onchange=newDeck;newDeck();
+
+// ---- Quiz
+const L=[
+{t:"Niveau 1",n:"Reconnaître le prétérit",s:"Facile · choix multiple",k:"mp"},
+{t:"Niveau 2",n:"Reconnaître le participe passé",s:"Facile · choix multiple",k:"mpp"},
+{t:"Niveau 3",n:"Écrire prétérit et participe passé",s:"Moyen · tu as l’infinitif",k:"w2"},
+{t:"Niveau 4",n:"Écrire les 3 formes",s:"Difficile · tu n’as que le français",k:"w3"},
+{t:"Bonus",n:"Retrouver la catégorie",s:"Expert · classer le verbe",k:"cat"}
+];
+const best=()=>{try{return JSON.parse(localStorage.getItem("irrBest")||"{}")}catch(e){return{}}};
+const saveBest=(k,s)=>{try{const b=best();if(!b[k]||s>b[k])b[k]=s;localStorage.setItem("irrBest",JSON.stringify(b))}catch(e){}};
+function setup(){
+  $("#qplay").hidden=true;$("#qsetup").hidden=false;const b=best();
+  $("#lvls").innerHTML=L.map((l,i)=>`<button class="lv" data-i="${i}"><b>${i<4?i+1:"★"}</b><span>${l.n}<small>${l.s}</small></span><em>${b[l.k]!=null?"Meilleur : "+b[l.k]+"/10":""}</em></button>`).join("");
+}
+$("#lvls").onclick=e=>{const b=e.target.closest(".lv");if(b)start(+b.dataset.i)};
+let lv,Q,qi,sc,miss,done;
+const reg=b=>b.endsWith("e")?b+"d":/[^aeiou]y$/.test(b)?b.slice(0,-1)+"ied":b+"ed";
+function mcq(v,key){
+  const ok=v[key],s=new Set([ok]);
+  if(v[key==="p"?"pp":"p"]!==ok)s.add(v[key==="p"?"pp":"p"]);
+  s.add(reg(v.b));
+  shuffle(V).forEach(x=>{if(s.size<4&&x[key]!==ok&&x[key]!==v.b)s.add(x[key])});
+  return shuffle([...s]);
+}
+function start(i){
+  lv=L[i];const src=lv.k==="cat"?V:pool($("#qcat").value);
+  Q=shuffle(src).slice(0,10);qi=0;sc=0;miss=[];
+  $("#qsetup").hidden=true;$("#qplay").hidden=false;ask();
+}
+function ask(){
+  if(qi>=Q.length)return end();
+  const v=Q[qi];done=false;
+  $("#qn").textContent=`${lv.t} · question ${qi+1}/${Q.length}`;$("#qs").textContent=`Score : ${sc}`;
+  const k=lv.k,head=k==="mp"||k==="mpp"||k==="w2"?`<div class="big">${v.b}</div><div class="fr">${esc(v.fr)}</div>`:k==="w3"?`<div class="fr">Verbe :</div><div class="big" style="font-size:clamp(30px,7vw,44px)">${esc(v.fr)}</div>`:`<div class="forms"><div>${v.b}<small>infinitif</small></div><div>${v.p}<small>prétérit</small></div><div>${v.pp}<small>participe</small></div></div><div class="fr">${esc(v.fr)}</div>`;
+  let body;
+  if(k==="mp"||k==="mpp"){const key=k==="mp"?"p":"pp";body=`<p>Quel est le ${k==="mp"?"prétérit":"participe passé"} ?</p><div class="opts">${mcq(v,key).map(o=>`<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join("")}</div>`}
+  else if(k==="cat"){const o=shuffle([v.c,...shuffle(D.map((_,i)=>i).filter(i=>i!==v.c)).slice(0,3)]);body=`<p>Dans quelle catégorie range-t-on ce verbe ?</p><div class="opts">${o.map(i=>`<button class="opt sm" data-o="${i}">${esc(D[i].n)}</button>`).join("")}</div>`}
+  else{const f=k==="w3"?[["b","Infinitif"],["p","Prétérit"],["pp","Participe passé"]]:[["p","Prétérit"],["pp","Participe passé"]];
+    body=`<form id="qf" autocomplete="off"><div class="fields">${f.map(([x,l])=>`<div><label for="f${x}">${l}</label><input id="f${x}" data-k="${x}" autocapitalize="off" spellcheck="false"></div>`).join("")}</div><div class="row"><button class="btn">Valider</button></div></form>`}
+  $("#qc").innerHTML=head+body+'<div class="fb" id="qfb" aria-live="polite"></div><div class="row"><button class="btn" id="qnx" hidden>Suivant</button></div>';
+  $$(".opt").forEach(b=>b.onclick=()=>pick(b));
+  if($("#qf")){$("#qf").onsubmit=e=>{e.preventDefault();check()};$("#qf input").focus()}
+}
+const same=(a,ex)=>{a=a.trim().toLowerCase();return !!a&&[...ex.split("/"),...(ALT[ex]||[])].includes(a)};
+function feed(ok,v){
+  done=true;if(ok)sc++;else miss.push(v.b);
+  $("#qs").textContent=`Score : ${sc}`;
+  const f=$("#qfb");f.className="fb "+(ok?"ok":"ko");
+  f.innerHTML=(ok?"Bravo ! ":"Pas tout à fait. ")+`<b>${v.b} – ${v.p} – ${v.pp}</b>`+(lv.k==="cat"?` (${esc(D[v.c].n)})`:"");
+  const n=$("#qnx");n.hidden=false;n.textContent=qi===Q.length-1?"Voir le résultat":"Suivant";n.onclick=()=>{qi++;ask()};n.focus();
+}
+function pick(b){
+  if(done)return;const v=Q[qi],k=lv.k;
+  const ok=k==="cat"?+b.dataset.o===v.c:b.dataset.o===v[k==="mp"?"p":"pp"];
+  $$(".opt").forEach(x=>{x.disabled=true;const r=k==="cat"?+x.dataset.o===v.c:x.dataset.o===v[k==="mp"?"p":"pp"];if(r)x.classList.add("right")});
+  if(!ok)b.classList.add("wrong");
+  if(k!=="cat")say(v.b);feed(ok,v);
+}
+function check(){
+  if(done)return;const v=Q[qi];let all=true;
+  $$("#qf input").forEach(i=>{const r=same(i.value,v[i.dataset.k]);i.classList.add(r?"right":"wrong");i.readOnly=true;if(!r)all=false});
+  $("#qf .btn").hidden=true;feed(all,v);
+}
+function end(){
+  saveBest(lv.k,sc);const i=L.indexOf(lv),nx=sc>=7&&i<L.length-1;
+  $("#qn").textContent=lv.t;
+  $("#qc").innerHTML=`<div class="score">${sc} / ${Q.length}</div><p>${sc===Q.length?"Parfait !":sc>=7?"Très bien, tu peux passer à la suite.":"Continue, relis les fiches et recommence."}</p>`+(miss.length?`<p class="fr">À revoir : ${miss.map(esc).join(", ")}</p>`:"")+`<div class="row"><button class="btn ghost" id="eb">Niveaux</button><button class="btn ${nx?"ghost":""}" id="er">Rejouer</button>${nx?'<button class="btn" id="en">Niveau suivant</button>':""}</div>`;
+  $("#eb").onclick=setup;$("#er").onclick=()=>start(i);if(nx)$("#en").onclick=()=>start(i+1);
+}
+setup();
+</script>
+</body>
+</html>
